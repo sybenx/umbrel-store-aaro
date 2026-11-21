@@ -1,0 +1,44 @@
+manifestVersion: 1
+id: aaro-updates
+category: automation
+name: Updates
+version: "0.1.0"
+tagline: One-click updates for all your machines
+icon: https://raw.githubusercontent.com/sybenx/umbrel-store-aaro/main/assets/aaro-updates.svg
+description: >-
+  Every machine's pending updates on one page, with an Update all button per machine.
+  Each machine runs a small agent (Mac, Windows, Linux and SteamOS, Dockge) that reports
+  what is out of date in a signed report. A click approves that report, and the machine
+  installs only what it reported, under its own rules. Umbrels need no agent: enter an
+  Umbrel's address and MCP token on its card. The agents call this app; no machine opens
+  a port.
+
+
+  Overnight, between 02:00 and 05:00, the agents install what is safe to install without
+  asking. System updates, installers that need a password and apps that are running wait
+  for you.
+
+
+  The page is behind your Umbrel login. Machines join with a one-time command from the page.
+releaseNotes: >-
+  First version.
+developer: sybenx
+website: https://github.com/sybenx/fleet-updates
+dependencies: []
+repo: https://github.com/sybenx/fleet-updates
+support: https://github.com/sybenx/fleet-updates/issues
+port: 7480
+gallery: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+submitter: sybenx
+submission: https://github.com/sybenx/umbrel-store-aaro
+environment:
+  - name: FLEET_URL
+    services:
+      - server
+    note: The address the machines reach this app at, for the install commands on the page, for example http://xumbrel.local:7480 or a Tailscale address. Leave it empty to use the address your browser used.
+# The test approval key and the Umbrel MCP tokens are in the state folder.
+backupIgnore:
+  - data/dev-signer.key

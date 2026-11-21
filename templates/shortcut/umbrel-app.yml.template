@@ -1,0 +1,25 @@
+# Shortcut app: a home screen icon that opens an existing Dockge stack's port. No state.
+# Copy templates/shortcut to a new folder named aaro-<name> at the root of this store, drop the
+# .template from both file names and fill in every __PLACEHOLDER__ (see README.md here).
+manifestVersion: 1
+id: aaro-__NAME__
+category: __CATEGORY__
+name: __TITLE__
+version: "1.0.0"
+tagline: __TAGLINE__
+icon: https://raw.githubusercontent.com/sybenx/umbrel-store-aaro/main/assets/aaro-__NAME__.svg
+description: >-
+  Opens __TITLE__, which runs as a Dockge stack on this Umbrel, on port __TARGET_PORT__.
+releaseNotes: ""
+developer: sybenx
+website: ""
+dependencies: []
+repo: ""
+support: ""
+port: __PORT__
+gallery: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+submitter: sybenx
+submission: https://github.com/sybenx/umbrel-store-aaro

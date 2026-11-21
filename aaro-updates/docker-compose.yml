@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: aaro-updates_server_1
+      APP_PORT: 7480
+      # Machines join through /install (with a one-time join token) and send signed reports on
+      # /api/agent, so those are not behind the Umbrel login. Everything else on this port is.
+      PROXY_AUTH_WHITELIST: "/api/agent/*,/install/*"
+
+  server:
+    # Digest pinned once the first image is built.
+    image: ghcr.io/sybenx/fleet-updates:0.1.0
+    user: "1000:1000"
+    restart: on-failure
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      DATA_DIR: /data
+      HOST: 0.0.0.0
+      PORT: "7480"
+      # v1: the dashboard holds a test approval key. v2 signs on the page through Keykin and sets
+      # FLEET_APPROVER to the child key's public key instead.
+      FLEET_DEV_SIGNER: "1"
+    volumes:
+      - ${APP_DATA_DIR}/data:/data

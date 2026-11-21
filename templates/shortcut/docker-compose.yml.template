@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: aaro-__NAME___web_1
+      APP_PORT: 8080
+      # The stack has its own sign-in, or none; this page only sends the browser on.
+      PROXY_AUTH_ADD: "false"
+
+  web:
+    image: busybox:1.37
+    user: "1000:1000"
+    restart: on-failure
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /www:uid=1000,gid=1000
+    environment:
+      TARGET_PORT: "__TARGET_PORT__"
+    # Same host and scheme the browser used, the stack's port.
+    command:
+      - sh
+      - -c
+      - >-
+        printf '<!doctype html><meta name="viewport" content="width=device-width"><script>location.port=%s</script>' "$$TARGET_PORT" > /www/index.html &&
+        exec httpd -f -p 8080 -h /www
