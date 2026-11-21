@@ -2,7 +2,7 @@ manifestVersion: 1
 id: aaro-updates
 category: automation
 name: Updates
-version: "0.1.1"
+version: "0.1.2"
 tagline: One-click updates for all your machines
 icon: https://raw.githubusercontent.com/sybenx/umbrel-store-aaro/master/assets/aaro-updates.svg
 description: >-
@@ -21,7 +21,7 @@ description: >-
 
   The page is behind your Umbrel login. Machines join with a one-time command from the page.
 releaseNotes: >-
-  The Copy button works when the page is opened over plain http on your network.
+  Adding an Umbrel takes whatever its Connect your agent screen shows: the token, the Bearer line, or the whole block.
 developer: sybenx
 website: https://github.com/sybenx/fleet-updates
 dependencies: []
