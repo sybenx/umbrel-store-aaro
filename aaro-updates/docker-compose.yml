@@ -10,8 +10,7 @@ services:
       PROXY_AUTH_WHITELIST: "/api/agent/*,/install/*"
 
   server:
-    # Digest pinned once the first image is built.
-    image: ghcr.io/sybenx/fleet-updates:0.1.0
+    image: ghcr.io/sybenx/fleet-updates:0.1.0@sha256:7b5c838c21529f3b5c23cb9cddbb8de6edd011860f0030d1202d68e9de47fc92
     user: "1000:1000"
     restart: on-failure
     read_only: true
