@@ -4,7 +4,7 @@ category: automation
 name: Updates
 version: "0.1.0"
 tagline: One-click updates for all your machines
-icon: https://raw.githubusercontent.com/sybenx/umbrel-store-aaro/main/assets/aaro-updates.svg
+icon: https://raw.githubusercontent.com/sybenx/umbrel-store-aaro/master/assets/aaro-updates.svg
 description: >-
   Every machine's pending updates on one page, with an Update all button per machine.
   Each machine runs a small agent (Mac, Windows, Linux and SteamOS, Dockge) that reports
