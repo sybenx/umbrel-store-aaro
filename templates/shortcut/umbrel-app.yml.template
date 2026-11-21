@@ -7,7 +7,7 @@ category: __CATEGORY__
 name: __TITLE__
 version: "1.0.0"
 tagline: __TAGLINE__
-icon: https://raw.githubusercontent.com/sybenx/umbrel-store-aaro/main/assets/aaro-__NAME__.svg
+icon: https://raw.githubusercontent.com/sybenx/umbrel-store-aaro/master/assets/aaro-__NAME__.svg
 description: >-
   Opens __TITLE__, which runs as a Dockge stack on this Umbrel, on port __TARGET_PORT__.
 releaseNotes: ""
