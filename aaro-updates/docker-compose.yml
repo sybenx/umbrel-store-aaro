@@ -10,7 +10,7 @@ services:
       PROXY_AUTH_WHITELIST: "/api/agent/*,/install/*"
 
   server:
-    image: ghcr.io/sybenx/fleet-updates:0.1.2@sha256:254fa8c585986552b29cb36a49e9ca83ad70def370dcbd657554e6af904922ea
+    image: ghcr.io/sybenx/fleet-updates:0.1.3@sha256:115b446f06df2ba2211f635a6a868f199aae8e2a5e6500de10315be99f4f9cf5
     user: "1000:1000"
     restart: on-failure
     read_only: true
