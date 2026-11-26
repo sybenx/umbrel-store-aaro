@@ -38,7 +38,7 @@ environment:
   - name: FLEET_URL
     services:
       - server
-    note: The address the machines reach this app at, for the install commands on the page, for example http://xumbrel.local:7480 or a Tailscale address. Leave it empty to use the address your browser used.
+    note: The address the machines reach this app at, for the install commands on the page, for example http://xumbrel:7480. Leave it empty to use the address your browser used.
 # The test approval key and the Umbrel MCP tokens are in the state folder.
 backupIgnore:
   - data/dev-signer.key
