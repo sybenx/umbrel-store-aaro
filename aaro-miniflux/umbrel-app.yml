@@ -1,0 +1,29 @@
+manifestVersion: 1
+id: aaro-miniflux
+category: social
+name: Miniflux
+version: "2.3.5"
+tagline: A fast, simple feed reader
+icon: https://raw.githubusercontent.com/miniflux/v2/main/internal/ui/static/bin/icon-512.png
+description: >-
+  Miniflux follows your RSS and Atom feeds and shows the new posts on one clean page.
+  It also works with feed reader apps on your phone through its Fever and Google Reader
+  API (turn them on under Settings, Integrations).
+
+
+  This app follows Miniflux releases on its own: a new version shows up here as an update
+  a couple of days after Miniflux ships it.
+releaseNotes: >-
+  Miniflux 2.3.5. Full notes: https://github.com/miniflux/v2/releases/tag/2.3.5
+developer: Frédéric Guillot
+website: https://miniflux.app
+dependencies: []
+repo: https://github.com/miniflux/v2
+support: https://github.com/miniflux/v2/issues
+port: 7482
+gallery: []
+path: ""
+defaultUsername: admin
+deterministicPassword: true
+submitter: sybenx
+submission: https://github.com/sybenx/umbrel-store-aaro

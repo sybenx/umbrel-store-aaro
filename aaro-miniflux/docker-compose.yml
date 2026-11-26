@@ -1,0 +1,34 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: aaro-miniflux_web_1
+      APP_PORT: 8080
+      # Miniflux has its own login, and reader apps on phones sign in to its API directly.
+      PROXY_AUTH_ADD: "false"
+
+  # Image tags are bumped by .github/workflows/miniflux.yml when Miniflux releases.
+  web:
+    image: miniflux/miniflux:2.3.5@sha256:8fd6c3c434ecc3d4083306f83e03c0bb74c632e0f8378da5ead7e1773b0b89c9
+    restart: on-failure
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://miniflux:miniflux@aaro-miniflux_db_1/miniflux?sslmode=disable
+      RUN_MIGRATIONS: "1"
+      CREATE_ADMIN: "1"
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: ${APP_PASSWORD}
+      POLLING_FREQUENCY: "30"
+
+  db:
+    image: postgres:17@sha256:87c8b42f423b45d5247e6aa8fdb2e7762fec164c68a50fe3eb07e7bfcaf4dbcf
+    restart: on-failure
+    stop_grace_period: 1m
+    environment:
+      POSTGRES_USER: miniflux
+      POSTGRES_PASSWORD: miniflux
+      POSTGRES_DB: miniflux
+    volumes:
+      - ${APP_DATA_DIR}/data/db:/var/lib/postgresql/data

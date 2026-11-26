@@ -1,0 +1,23 @@
+name: Follow Miniflux releases
+
+on:
+  schedule:
+    - cron: "17 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: bump
+        run: .github/scripts/bump-miniflux.sh
+      - if: steps.bump.outputs.bumped
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Miniflux ${{ steps.bump.outputs.bumped }}"
+          git push
